@@ -6,4 +6,3 @@ c:\users\andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\obj\Debug\Middl
 C:\Users\Andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\bin\Debug\RestSharp.dll
 C:\Users\Andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\bin\Debug\System.ValueTuple.dll
 C:\Users\Andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\bin\Debug\System.ValueTuple.xml
-C:\Users\Andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\obj\Debug\MiddlewareLayerFramework.csprojResolveAssemblyReference.cache

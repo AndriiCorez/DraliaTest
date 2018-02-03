@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TechTalk.SpecFlow;
 
-namespace DraliaTest.Steps
+namespace DraliaTest.Helpers
 {
     /// <summary>
     /// 
     /// </summary>
-    [Binding]
-    public class TakeSlot
+    internal static class SerializationHelper
     {
     }
 }

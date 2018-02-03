@@ -20,3 +20,8 @@ C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\TechTalk.SpecFlow.d
 C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\ImpromptuInterface.xml
 C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\nunit.framework.xml
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\MiddlewareLayerFramework.dll
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\RestSharp.dll
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\System.ValueTuple.dll
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\MiddlewareLayerFramework.pdb
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\System.ValueTuple.xml
