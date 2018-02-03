@@ -1,0 +1,13 @@
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\DraliaTest.dll
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\DraliaTest.pdb
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\obj\Debug\DraliaTest.csproj.CoreCompileInputs.cache
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\obj\Debug\DraliaTest.dll
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\obj\Debug\DraliaTest.pdb
+c:\users\andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\DraliaTest.dll.config

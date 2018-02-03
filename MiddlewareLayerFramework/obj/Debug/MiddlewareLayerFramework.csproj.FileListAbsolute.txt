@@ -1,0 +1,5 @@
+c:\users\andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\bin\Debug\MiddlewareLayerFramework.dll
+c:\users\andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\bin\Debug\MiddlewareLayerFramework.pdb
+c:\users\andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\obj\Debug\MiddlewareLayerFramework.csproj.CoreCompileInputs.cache
+c:\users\andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\obj\Debug\MiddlewareLayerFramework.dll
+c:\users\andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\obj\Debug\MiddlewareLayerFramework.pdb
