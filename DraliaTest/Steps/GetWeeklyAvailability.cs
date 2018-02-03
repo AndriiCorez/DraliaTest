@@ -11,7 +11,7 @@ namespace DraliaTest.Steps
     /// 
     /// </summary>
     [Binding]
-    class GetWeeklyAvailability
+    public class GetWeeklyAvailability
     {
     }
 }

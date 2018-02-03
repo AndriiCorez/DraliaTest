@@ -3,3 +3,7 @@ c:\users\andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\bin\Debug\Middl
 c:\users\andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\obj\Debug\MiddlewareLayerFramework.csproj.CoreCompileInputs.cache
 c:\users\andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\obj\Debug\MiddlewareLayerFramework.dll
 c:\users\andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\obj\Debug\MiddlewareLayerFramework.pdb
+C:\Users\Andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\bin\Debug\RestSharp.dll
+C:\Users\Andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\bin\Debug\System.ValueTuple.dll
+C:\Users\Andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\bin\Debug\System.ValueTuple.xml
+C:\Users\Andres\Source\Repos\DraliaTest\MiddlewareLayerFramework\obj\Debug\MiddlewareLayerFramework.csprojResolveAssemblyReference.cache

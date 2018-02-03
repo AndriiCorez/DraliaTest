@@ -11,3 +11,12 @@ c:\users\andres\Source\Repos\DraliaTest\DraliaTest\obj\Debug\DraliaTest.csproj.C
 c:\users\andres\Source\Repos\DraliaTest\DraliaTest\obj\Debug\DraliaTest.dll
 c:\users\andres\Source\Repos\DraliaTest\DraliaTest\obj\Debug\DraliaTest.pdb
 c:\users\andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\DraliaTest.dll.config
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\obj\Debug\DraliaTest.csprojResolveAssemblyReference.cache
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\ImpromptuInterface.dll
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\nunit.framework.dll
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\SpecFlow.Assist.Dynamic.dll
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\ImpromptuInterface.xml
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Andres\Source\Repos\DraliaTest\DraliaTest\bin\Debug\nunit.framework.xml
