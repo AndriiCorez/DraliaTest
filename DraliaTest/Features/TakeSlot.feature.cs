@@ -31,8 +31,8 @@ namespace DraliaTest.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "TakeSlot", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "TakeSlot", "\tAs user\r\n\tI want to be able to take available time slot\r\n\tSo it will be booked f" +
+                    "or a visit", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,22 +65,626 @@ namespace DraliaTest.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void AddTwoNumbers()
+        [NUnit.Framework.DescriptionAttribute("Take slot successfully")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakeSlotSuccessfully()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", new string[] {
-                        "mytag"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Take slot successfully", new string[] {
+                        "regression"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table1.AddRow(new string[] {
+                        "\"2018-03-05 10:10:00\"",
+                        "\"2018-03-05 10:20:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        "34987654321"});
 #line 8
- testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
- testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
- testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table1, "Given ");
 #line 11
- testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("response status is OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot without a start timestamp")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotWithoutAStartTimestamp()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot without a start timestamp", new string[] {
+                        "regression"});
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table2.AddRow(new string[] {
+                        "\"\"",
+                        "\"2018-01-29 09:20:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        "34987654321"});
+#line 16
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table2, "Given ");
+#line 19
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 22
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot without an end timestamp")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotWithoutAnEndTimestamp()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot without an end timestamp", new string[] {
+                        "regression"});
+#line 26
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table3.AddRow(new string[] {
+                        "\"2018-03-05 09:10:00\"",
+                        "\"\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        "34987654321"});
+#line 27
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table3, "Given ");
+#line 30
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 33
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot with invalid timestamps")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotWithInvalidTimestamps()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot with invalid timestamps", new string[] {
+                        "regression"});
+#line 37
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table4.AddRow(new string[] {
+                        "\"2018-33-45 59:10:72\"",
+                        "\"2018-31-49 29:20:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        "34987654321"});
+#line 38
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table4, "Given ");
+#line 43
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 44
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot for 11 minutes")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotFor11Minutes()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot for 11 minutes", new string[] {
+                        "regression"});
+#line 48
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table5.AddRow(new string[] {
+                        "\"2018-03-05 09:10:00\"",
+                        "\"2018-01-29 09:20:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        "34987654321"});
+#line 49
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table5, "Given ");
+#line 54
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 55
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot for 9 minutes")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotFor9Minutes()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot for 9 minutes", new string[] {
+                        "regression"});
+#line 59
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table6.AddRow(new string[] {
+                        "\"2018-03-05 09:10:00\"",
+                        "\"2018-01-29 09:19:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        "34987654321"});
+#line 60
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table6, "Given ");
+#line 65
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 66
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot with changed request body structure")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotWithChangedRequestBodyStructure()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot with changed request body structure", new string[] {
+                        "regression"});
+#line 70
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table7.AddRow(new string[] {
+                        "\"2018-03-05 09:10:00\"",
+                        "\"2018-03-05 09:20:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        "34987654321"});
+#line 71
+ testRunner.Given("I take the follwoing slot with errors", ((string)(null)), table7, "Given ");
+#line 74
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 75
+ testRunner.And("response content is \"\"Valid slot.Start required\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot without patient names")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotWithoutPatientNames()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot without patient names", new string[] {
+                        "regression"});
+#line 79
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table8.AddRow(new string[] {
+                        "\"2018-03-05 09:10:00\"",
+                        "\"2018-03-05 09:20:00\"",
+                        "N/A",
+                        "",
+                        "",
+                        "auto@email.com",
+                        "34987654321"});
+#line 80
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table8, "Given ");
+#line 83
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 86
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot without patient email")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotWithoutPatientEmail()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot without patient email", new string[] {
+                        "regression"});
+#line 90
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table9.AddRow(new string[] {
+                        "\"2018-03-05 09:10:00\"",
+                        "\"2018-03-05 09:20:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "",
+                        "34987654321"});
+#line 91
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table9, "Given ");
+#line 94
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 97
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot without patient phone number")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotWithoutPatientPhoneNumber()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot without patient phone number", new string[] {
+                        "regression"});
+#line 101
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table10.AddRow(new string[] {
+                        "\"2018-03-07 09:10:00\"",
+                        "\"2018-03-07 09:20:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        ""});
+#line 102
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table10, "Given ");
+#line 105
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 108
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot with incorrect patient names format")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotWithIncorrectPatientNamesFormat()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot with incorrect patient names format", new string[] {
+                        "regression"});
+#line 112
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table11.AddRow(new string[] {
+                        "\"2018-03-07 09:10:00\"",
+                        "\"2018-03-07 09:20:00\"",
+                        "N/A",
+                        "a123",
+                        "!@a",
+                        "auto@email.com",
+                        "34987654321"});
+#line 113
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table11, "Given ");
+#line 116
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 119
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot with incorrect patient Email format")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotWithIncorrectPatientEmailFormat()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot with incorrect patient Email format", new string[] {
+                        "regression"});
+#line 123
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table12.AddRow(new string[] {
+                        "\"2018-03-07 09:10:00\"",
+                        "\"2018-03-07 09:20:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "!a2",
+                        ""});
+#line 124
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table12, "Given ");
+#line 127
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 130
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot with incorrect patient Phone format")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotWithIncorrectPatientPhoneFormat()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot with incorrect patient Phone format", new string[] {
+                        "regression"});
+#line 134
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table13.AddRow(new string[] {
+                        "\"2018-03-07 09:10:00\"",
+                        "\"2018-03-07 09:20:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        "34987654321"});
+#line 135
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table13, "Given ");
+#line 138
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 141
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot from past dates")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotFromPastDates()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot from past dates", new string[] {
+                        "regression"});
+#line 145
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table14.AddRow(new string[] {
+                        "\"2017-12-04 09:10:00\"",
+                        "\"2017-12-04 09:20:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        "34987654321"});
+#line 146
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table14, "Given ");
+#line 149
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 152
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot with end timestamp earlier than start timestamp")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotWithEndTimestampEarlierThanStartTimestamp()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot with end timestamp earlier than start timestamp", new string[] {
+                        "regression"});
+#line 156
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table15.AddRow(new string[] {
+                        "\"2018-03-07 09:10:00\"",
+                        "\"2018-03-07 09:00:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        "34987654321"});
+#line 157
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table15, "Given ");
+#line 160
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 163
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking Busy slot")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingBusySlot()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking Busy slot", new string[] {
+                        "regression"});
+#line 168
+this.ScenarioSetup(scenarioInfo);
+#line 169
+ testRunner.Given("TBD", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot during lunch break")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotDuringLunchBreak()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot during lunch break", new string[] {
+                        "regression"});
+#line 173
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table16.AddRow(new string[] {
+                        "\"2018-03-05 13:10:00\"",
+                        "\"2018-03-05 13:20:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        "34987654321"});
+#line 174
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table16, "Given ");
+#line 177
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 180
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Taking slot out of working hours")]
+        [NUnit.Framework.CategoryAttribute("regression")]
+        public virtual void TakingSlotOutOfWorkingHours()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking slot out of working hours", new string[] {
+                        "regression"});
+#line 185
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Start",
+                        "End",
+                        "Comments",
+                        "Name",
+                        "SecondName",
+                        "Email",
+                        "Phone"});
+            table17.AddRow(new string[] {
+                        "\"2018-03-05 23:10:00\"",
+                        "\"2018-03-05 23:20:00\"",
+                        "N/A",
+                        "AutoName",
+                        "AutoSurname",
+                        "auto@email.com",
+                        "34987654321"});
+#line 186
+ testRunner.Given("I take the follwoing slot", ((string)(null)), table17, "Given ");
+#line 189
+ testRunner.Then("response status is Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 192
+ testRunner.And("response content is \"\"Some error text\"\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

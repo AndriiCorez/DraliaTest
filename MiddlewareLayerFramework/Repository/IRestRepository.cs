@@ -1,20 +1,18 @@
-﻿using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// <copyright file="IRestRepository.cs">
+// Copyright (c) 2018 All Rights Reserved
+// </copyright>
+// <author>Andrii Vasyliev</author>
+
+using RestSharp;
 
 namespace MiddlewareLayerFramework.Repository
 {
     /// <summary>
-    /// 
+    /// Interface requires implementation of set of methods to implement REST requests
     /// </summary>
     interface IRestRepository
     {
-        IRestResponse Get(RestClient client);
         IRestResponse Get(RestClient client, string endpoint);
-        IRestResponse Post(RestClient client, string endpoint);
         IRestResponse Post(RestClient client, string endpoint, string requestBody);
 
     }
